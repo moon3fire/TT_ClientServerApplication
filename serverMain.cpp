@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 		exit(EXIT_FAILURE);
 	}
 	else if (pid > 0) {
-		exit(EXIT_SUCCESS);
+
 	}
 
 	umask(0);

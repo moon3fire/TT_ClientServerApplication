@@ -31,7 +31,7 @@ Server::Server(std::string ip, std::string port)
 		return;
 	}
 
-//	m_server.sin_family = AF_INET;
+	m_server.sin_family = AF_INET;
 //	m_server.sin_addr.s_addr = INADDR_ANY;
 	m_server.sin_port = htons(std::atoi(m_port.c_str()));
 	m_server.sin_addr.s_addr = inet_addr(ip.c_str());
