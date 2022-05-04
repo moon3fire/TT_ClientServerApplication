@@ -3,6 +3,8 @@
 #include <string>
 #include "TT_Cli.h"
 
+#define BUF_SIZE 512
+
 class Client {
 public:
         Client();
@@ -13,7 +15,7 @@ public:
         bool _GetTimeFromServer(std::vector<std::string> cmdArgs);
         bool _DisconnectFromServer(std::vector<std::string> cmdArgs);
 private:
-        char m_buffer[2000];
+        char m_buffer[BUF_SIZE];
         bool m_connectStatus;
         std::string m_currentCommand;
         std::string m_currentIP;

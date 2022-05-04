@@ -57,14 +57,14 @@ Client::Client()
 	CMDList.insert(CommandDefinition(c_CMD_DISCONNECT_STR, c_CMD_DISCONNECT_DEF, &DisconnectFromServer));
 	CMDList.insert(CommandDefinition(c_CMD_PRINT_VERSION_STR, c_CMD_PRINT_VERSION_DEF, &GetClientVersion));	
     
-	memset(m_buffer, 0, strlen(m_buffer));
+	memset(m_buffer, 0, BUF_SIZE);
     
     std::cout << "#################################################################################" << std::endl;
     std::cout << "#                             Client Application Version " << sc_VERSION << "                  #" << std::endl;
     std::cout << "#################################################################################" << std::endl;
 
     std::cout << " Type help for additional information" << std::endl;
-    std::cout << " Server IP 0.0.0.0 , port 7821" << std::endl;
+    std::cout << " Default server IP 127.0.0.1 , port 7821" << std::endl;
 }
 
 void Client::Run()
@@ -145,8 +145,8 @@ bool Client::_GetTimeFromServer(std::vector<std::string> cmdArgs)
 		return true;
 	}
 	send(m_sock, cmdArgs[0].c_str(), cmdArgs[0].size(), 0);
-	memset(m_buffer, 0, 2000);
-	int bytesRecieved = recv(m_sock, m_buffer, 2000, 0);
+	memset(m_buffer, 0, BUF_SIZE);
+	int bytesRecieved = recv(m_sock, m_buffer, BUF_SIZE, 0);
 	if (bytesRecieved < 0) {
 		std::cerr << "Connection Lost , disconnecting from server...\n";
 		return true;

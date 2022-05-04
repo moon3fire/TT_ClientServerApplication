@@ -39,8 +39,7 @@ void CMDHandler::ShowTime(std::string& acceptedCommand)
 
 void CMDHandler::ClientDisconnect(std::string& acceptedCommand, int sockFD)
 {
-	std::string str = "disconnect accepted, disconnecting you from server...";
-    acceptedCommand = str;
+    acceptedCommand = "disconnect accepted, disconnecting you from server...";
 	send(sockFD, acceptedCommand.c_str(), strlen(acceptedCommand.c_str()) , 0);
 	shutdown(sockFD, SHUT_RDWR);
 	close(sockFD);
