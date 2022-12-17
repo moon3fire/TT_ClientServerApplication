@@ -11,7 +11,7 @@ public:
 	static void* CMDHandlingRun(void*);
 	bool _ShowTimeToClient(std::vector<std::string>);
 	bool _DisconnectClient(std::vector<std::string>);
-    static CMDHandler* CMDHandlerPtr;
+    	static CMDHandler* CMDHandlerPtr;
 private:
 	std::list<void*> sockList;
     	std::string m_port;
