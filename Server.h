@@ -14,7 +14,7 @@ public:
     static CMDHandler* CMDHandlerPtr;
 private:
 	std::list<void*> sockList;
-    std::string m_port;
+    	std::string m_port;
 	std::string m_ipAddress;
 	bool m_readyStatus;
 	static void* ClientServant(void*);
